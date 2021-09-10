@@ -143,16 +143,14 @@ header .container {
   height: 492px;
   margin-top: 25px;
   border-bottom: 1px solid rgba(250, 251, 255, 0.1);
-  /* position: absolute;
-     bottom: 0;
-     left: 50%;
-     margin-left: -481px; */
 }
 .image .captain {
   position: absolute;
   left: 50%;
   margin-left: -212px;
   z-index: 1;
+  animation: floating-img 6s ease-in-out infinite;
+
 }
 .image .shield {
   position: absolute;
@@ -170,6 +168,8 @@ header .container {
   padding: 28px 22px 28px 30px;
   position: absolute;
   border-radius: 6px;
+  z-index: 2;
+  animation: floating 6s ease-in-out infinite;
 }
 
 .box-left p,
@@ -187,4 +187,70 @@ header .container {
 .image .box-right {
   bottom: 55px;
   right: -83px;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+  header .container nav{
+    display: none;
+  }
+  .s-hero .image {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-top: 40px;
+    overflow: hidden;
+  }
+  .s-hero .image .box-left, .image .box-right {
+    display: none;
+   }
+}
+
+@media (max-width: 480px) {
+
+  header .container{
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  header .container button {
+    margin-top: 20px;
+  }
+
+  .s-hero .container h1{
+    font-size: 40px;
+  }
+  .s-hero .container p {
+    font-size: 16px;
+  }
+
+}
+
+/* ANIMATION */
+
+@keyframes floating {
+  0% {
+    transform: translateX(0);
+  }
+  66% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes floating-img {
+  0% {
+    transform: translateX(-20px);
+  }
+  66% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
 }
